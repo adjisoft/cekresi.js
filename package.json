@@ -1,0 +1,21 @@
+{
+  "name": "cekresi",
+  "version": "1.0.0",
+  "description": "CLI cek resi dengan scrape cekresi.com",
+  "main": "cekresi.js",
+  "bin": {
+    "cekresi": "./cekresi.js"
+  },
+  "scripts": {
+    "cek": "node cekresi.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.15.0",
+    "cheerio": "^1.2.0"
+  }
+}
