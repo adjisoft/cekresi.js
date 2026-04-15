@@ -171,15 +171,15 @@ function opoIki(html, noresi, expTried) {
   let status = teksResik($("#status_resi").first().text()) || teksResik(infoKirim.Status || "");
   
   return {
-    jamDigowo: new Date().toISOString(),
-    resiMu: noresi,
-    kurirMu: kurir,
-    statusMu: status,
-    posisiMu: teksResik($("#last_position").first().text()),
-    linkCek: $("#linkcekresi").attr("value") || "",
-    infoKiriman: infoKirim,
-    riwayatMu: riwayat
-  };
+    waktu_akses: new Date().toISOString(),
+    no_resi: noresi,
+    ekspedisi: kurir,
+    status_pengiriman: status,
+    lokasi_terkini: teksResik($("#last_position").first().text()),
+    tautan_pelacakan: $("#linkcekresi").attr("value") || "",
+    informasi_pengiriman: infoKirim,
+    riwayat_pengiriman: riwayat
+};
 }
 
 function cetakGaul(result) {
