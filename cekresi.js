@@ -91,7 +91,7 @@ async function golekToken(axiosku) {
   return { viewstate, secretKey };
 }
 
-async function kirimInitialize(axiosku, payload) {
+async function kirimkan(axiosku, payload) {
   let url = `${penyedia2}?ui=${tokenBmkg}&p=1&w=${Math.random().toString(36).slice(2)}`;
   let body = new URLSearchParams(payload).toString();
   
@@ -213,7 +213,7 @@ async function golekResi(axiosku, tokens, noresi, timers, expEksplisit) {
   let expKode = expEksplisit ? expEksplisit.toUpperCase() : "";
   
   if (expKode) {
-    let html = await kirimInitialize(axiosku, {
+    let html = await kirimkan(axiosku, {
       viewstate: tokens.viewstate,
       secret_key: tokens.secretKey,
       e: expKode,
@@ -227,7 +227,7 @@ async function golekResi(axiosku, tokens, noresi, timers, expEksplisit) {
     return opoIki(html, noresi, expKode);
   }
   
-  let pertama = await kirimInitialize(axiosku, {
+  let pertama = await kirimkan(axiosku, {
     viewstate: tokens.viewstate,
     secret_key: tokens.secretKey,
     e: "",
@@ -257,7 +257,7 @@ async function golekResi(axiosku, tokens, noresi, timers, expEksplisit) {
   let urutan = cocokAwal ? [cocokAwal, ...pilihan.filter(opt => opt.kode !== cocokAwal.kode)] : pilihan;
   
   for (let opt of urutan) {
-    let html = await kirimInitialize(axiosku, {
+    let html = await kirimkan(axiosku, {
       viewstate: tokens.viewstate,
       secret_key: tokens.secretKey,
       e: opt.kode,
